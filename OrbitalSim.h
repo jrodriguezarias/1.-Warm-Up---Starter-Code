@@ -8,12 +8,15 @@
 #ifndef ORBITALSIM_H
 #define ORBITALSIM_H
 
+#include "raylib.h"
+#include "raymath.h"
+
 /**
  * @brief Orbital body definition
  */
 typedef struct OrbitalBody
 {
-    char* name;
+    char name[100];
     float mass;
     float radius;
     Color color;
@@ -30,10 +33,14 @@ typedef struct OrbitalSim
 {
     float timestep;
     int bodies_count;
-    OrbitalBody* pBodies;
+    OrbitalBody *pBodies;
 
 }OrbitalSim_t;
 
+/**
+ * @brief Creates orbital simulation
+ * @param timeStep timestep to be utilized for physics calculations in the simulation
+ */
 OrbitalSim_t *constructOrbitalSim(float timeStep);
 
 

@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
 #include "OrbitalSim.h"
 #include "ephemerides.h"
@@ -69,29 +70,23 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
 OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
     int bodyCount = 9;
-    OrbitalBody_t * Bodies = new (OrbitalBody_t[bodyCount]);
+    OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount];
 
    int i,j;
    // Copio el sistema solar a un arreglo de OrbitalBodys
-    for(j = 0; j < 9; j++){
-        for(i=0; solarSystem[j].name[i] != '\0'; i++){
-            Bodies[j].name[i] = solarSystem[j].name[i];
-        }
+    for(j = 0; j < bodyCount; j++){
+        strcpy(Bodies[j].name,solarSystem[j].name);
         Bodies[j].mass = solarSystem[j].mass;
         Bodies[j].radius = solarSystem[j].radius;
         Bodies[j].color = solarSystem[j].color;
         Bodies[j].position = solarSystem[j].position;
         Bodies[j].velocity = solarSystem[j].velocity;
     }
+    
+    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,bodyCount,Bodies});
+    
 
-    OrbitalSim_t Simulation = {
-        timeStep,
-        bodyCount,
-        Bodies
-    };
-
-
-    return &Simulation; // This should return your orbital sim
+    return Simulation; // This should return your orbital sim
 }
 
 /**
@@ -99,7 +94,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
  */
 void destroyOrbitalSim(OrbitalSim_t *sim)
 {
-    // Your code goes here...
+    delete[] sim->pBodies;
 
 
 }
@@ -112,7 +107,7 @@ void destroyOrbitalSim(OrbitalSim_t *sim)
 void updateOrbitalSim(OrbitalSim_t *sim)
 {
     //Bucle que calcula aceleraciones
-    
+
     //Bucle que mueve los cuerpos
 
 
