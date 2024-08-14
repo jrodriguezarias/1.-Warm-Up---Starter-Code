@@ -66,19 +66,38 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
  * @param float The time step
  * @return The orbital simulation
  */
-OrbitalSim *constructOrbitalSim(float timeStep)
+OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
-    // Your code goes here...
+    int bodyCount = 9;
+    OrbitalBody_t * Bodies = new (OrbitalBody_t[bodyCount]);
+
+   int i,j;
+   // Copio el sistema solar a un arreglo de OrbitalBodys
+    for(j = 0; j < 9; j++){
+        for(i=0; solarSystem[j].name[i] != '\0'; i++){
+            Bodies[j].name[i] = solarSystem[j].name[i];
+        }
+        Bodies[j].mass = solarSystem[j].mass;
+        Bodies[j].radius = solarSystem[j].radius;
+        Bodies[j].color = solarSystem[j].color;
+        Bodies[j].position = solarSystem[j].position;
+        Bodies[j].velocity = solarSystem[j].velocity;
+    }
+
+    OrbitalSim_t Simulation = {
+        timeStep,
+        bodyCount,
+        Bodies
+    };
 
 
-
-    return NULL; // This should return your orbital sim
+    return &Simulation; // This should return your orbital sim
 }
 
 /**
  * @brief Destroys an orbital simulation
  */
-void destroyOrbitalSim(OrbitalSim *sim)
+void destroyOrbitalSim(OrbitalSim_t *sim)
 {
     // Your code goes here...
 
@@ -90,9 +109,11 @@ void destroyOrbitalSim(OrbitalSim *sim)
  *
  * @param sim The orbital simulation
  */
-void updateOrbitalSim(OrbitalSim *sim)
+void updateOrbitalSim(OrbitalSim_t *sim)
 {
-    // Your code goes here...
+    //Bucle que calcula aceleraciones
+    
+    //Bucle que mueve los cuerpos
 
 
 }

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @brief Orbital simulation
  * @author Marc S. Ressl
  *
@@ -11,26 +11,34 @@
 /**
  * @brief Orbital body definition
  */
-struct OrbitalBody
+typedef struct OrbitalBody
 {
-    // Fill in your code here...
+    char* name;
+    float mass;
+    float radius;
+    Color color;
+    Vector3 position;
+    Vector3 velocity;
+    Vector3 acceleration;
 
-
-};
+}OrbitalBody_t;
 
 /**
  * @brief Orbital simulation definition
  */
-struct OrbitalSim
+typedef struct OrbitalSim
 {
-    // Fill in your code here...
+    float timestep;
+    int bodies_count;
+    OrbitalBody* pBodies;
+
+}OrbitalSim_t;
+
+OrbitalSim_t *constructOrbitalSim(float timeStep);
 
 
-};
+void destroyOrbitalSim(OrbitalSim_t *sim);
 
-OrbitalSim *constructOrbitalSim(float timeStep);
-void destroyOrbitalSim(OrbitalSim *sim);
-
-void updateOrbitalSim(OrbitalSim *sim);
+void updateOrbitalSim(OrbitalSim_t *sim);
 
 #endif
