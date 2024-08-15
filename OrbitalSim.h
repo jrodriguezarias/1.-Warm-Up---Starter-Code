@@ -31,7 +31,8 @@ typedef struct OrbitalBody
  */
 typedef struct OrbitalSim
 {
-    float timestep;
+    float timestep; //Timesteps used to calculate object physics
+    float total_time; //Time since the simulation started
     int bodies_count;
     OrbitalBody *pBodies;
 
@@ -43,9 +44,16 @@ typedef struct OrbitalSim
  */
 OrbitalSim_t *constructOrbitalSim(float timeStep);
 
-
+/**
+ * @brief Destroys orbital simulation
+ * @param sim simulation to destroy
+ */
 void destroyOrbitalSim(OrbitalSim_t *sim);
 
+/**
+ * @brief Updates the simulation by a tick
+ * @param sim simulation to update
+ */
 void updateOrbitalSim(OrbitalSim_t *sim);
 
 #endif

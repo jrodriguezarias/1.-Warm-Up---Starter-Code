@@ -73,7 +73,8 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
     OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount];
 
    int i,j;
-   // Copio el sistema solar a un arreglo de OrbitalBodys
+
+   //Copying the solarSystem to an array of OrbitalBodys
     for(j = 0; j < bodyCount; j++){
         strcpy(Bodies[j].name,solarSystem[j].name);
         Bodies[j].mass = solarSystem[j].mass;
@@ -83,9 +84,8 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
         Bodies[j].velocity = solarSystem[j].velocity;
     }
     
-    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,bodyCount,Bodies});
+    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,0,bodyCount,Bodies});
     
-
     return Simulation; // This should return your orbital sim
 }
 
@@ -94,9 +94,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
  */
 void destroyOrbitalSim(OrbitalSim_t *sim)
 {
-    delete[] sim->pBodies;
-
-
+    delete[] sim;
 }
 
 /**
@@ -106,9 +104,25 @@ void destroyOrbitalSim(OrbitalSim_t *sim)
  */
 void updateOrbitalSim(OrbitalSim_t *sim)
 {
-    //Bucle que calcula aceleraciones
+    //Acceleration Calculations
+   
+    int i,j;
+    for(i = 0; i < sim->bodies_count; i++){
+        Vector3 F;
+        for(j = 0; j < sim->bodies_count; j++){
+            if(i!=j){
+            float norma = Vector3Distance(sim->pBodies[i].position, sim->pBodies[j].position);
+            float scalar = -GRAVITATIONAL_CONSTANT * sim->pBodies[i].mass * sim->pBodies[j].mass / (norma * norma); 
+            Vector3 F_ij = Vector3Scale(Vector3Subtract(sim->pBodies[i].position, sim->pBodies[j].position) , scalar / norma);
+            Vector3Add(F,F_ij);
+            }
+        }
+        sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, Vector3Scale(F,1/(sim->pBodies[i].mass)));
+    }
+    
 
-    //Bucle que mueve los cuerpos
+    //Velocity and Position Calculations
 
 
+    sim->total_time += sim->timestep;
 }

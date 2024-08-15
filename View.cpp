@@ -80,7 +80,7 @@ bool isViewRendering(View *view)
 }
 
 /**
- * Renders an orbital simulation
+ * @brief Renders an orbital simulation
  *
  * @param view The view
  * @param sim The orbital sim
@@ -93,20 +93,22 @@ void renderView(View *view, OrbitalSim *sim)
     
     ClearBackground(BLACK);
     BeginMode3D(view->camera);
+
+    // 3D Drawing
+
     int i;
     for(i = 0; i < sim->bodies_count; i++){
         DrawSphere( Vector3Scale(sim->pBodies[i].position, 1E-11), 0.005F * logf(sim->pBodies[i].radius), sim->pBodies[i].color);
+        DrawPoint3D(sim->pBodies[i].position, sim->pBodies[i].color);
     }
-    // Fill in your 3D drawing code here:
-
     
-
     DrawGrid(10, 10.0f);
     EndMode3D();
 
-    // Fill in your 2D drawing code here:
+    // 2D Drawing
 
-
+    DrawFPS(5,700);
+    DrawText(getISODate(sim->total_time), 975, 675, 50, WHITE);
 
     EndDrawing();
 }
