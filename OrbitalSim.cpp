@@ -47,18 +47,19 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
     float phi = getRandomFloat(0, 2.0F * (float)M_PI);
 
     // Surprise!
-    // phi = 0;
+    //phi = 0;
 
     // https://en.wikipedia.org/wiki/Circular_orbit#Velocity
     float v = sqrtf(GRAVITATIONAL_CONSTANT * centerMass / r) * getRandomFloat(0.6F, 1.2F);
     float vy = getRandomFloat(-1E2F, 1E2F);
 
     // Fill in with your own fields:
-    // body->mass = 1E12F;  // Typical asteroid weight: 1 billion tons
-    // body->radius = 2E3F; // Typical asteroid radius: 2km
-    // body->color = GRAY;
-    // body->position = {r * cosf(phi), 0, r * sinf(phi)};
-    // body->velocity = {-v * sinf(phi), vy, v * cosf(phi)};
+    body->mass = 1E12F;  // Typical asteroid weight: 1 billion tons
+    body->radius = 2E3F; // Typical asteroid radius: 2km
+    body->color = GRAY;
+    body->position = {r * cosf(phi), 0, r * sinf(phi)};
+    body->velocity = {-v * sinf(phi), vy, v * cosf(phi)};
+    body->position_old = {r * cosf(phi), 0, r * sinf(phi)};
 }
 
 /**
@@ -70,21 +71,28 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
 OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
     int bodyCount = 9;
-    OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount];
+    int asteroidCount = 25;
+    OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount+asteroidCount];
 
    int i,j;
 
-   //Copying the solarSystem to an array of OrbitalBodys
-    for(j = 0; j < bodyCount; j++){
+    //Copying the solarSystem to an array of OrbitalBodys
+    for(j = 0; j < 9; j++){
         strcpy(Bodies[j].name,solarSystem[j].name);
         Bodies[j].mass = solarSystem[j].mass;
         Bodies[j].radius = solarSystem[j].radius;
         Bodies[j].color = solarSystem[j].color;
         Bodies[j].position = solarSystem[j].position;
         Bodies[j].velocity = solarSystem[j].velocity;
+        Bodies[j].position_old = solarSystem[j].position;
+    }
+
+    //Filling out the rest of the bodies as asteroids
+    for(; j < bodyCount+asteroidCount; j++){
+        configureAsteroid(Bodies+j, Bodies[0].mass);
     }
     
-    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,0,bodyCount,Bodies});
+    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,0,bodyCount+asteroidCount,Bodies});
     
     return Simulation; // This should return your orbital sim
 }
@@ -105,26 +113,26 @@ void destroyOrbitalSim(OrbitalSim_t *sim)
  */
 void updateOrbitalSim(OrbitalSim_t *sim)
 {
-    //Acceleration Calculations
-   
-    int i,j;
+     int i,j;
+
     for(i = 0; i < sim->bodies_count; i++){
-        Vector3 F = Vector3Zero();
+
+        sim->pBodies[i].acceleration = Vector3Zero();
+        sim->pBodies[i].position_old = sim->pBodies[i].position; //Copy over the old position so that calculations arent messed with once position updates
+
+        //Acceleration Calculations
         for(j = 0; j < sim->bodies_count; j++){
-            if(i!=j){
-            double norma = Vector3Distance(sim->pBodies[i].position, sim->pBodies[j].position); 
-            float scalar = -GRAVITATIONAL_CONSTANT * sim->pBodies[i].mass * sim->pBodies[j].mass / (norma * norma); 
-            Vector3 F_ij = Vector3Scale(Vector3Subtract(sim->pBodies[i].position, sim->pBodies[j].position) , scalar / norma);
-            F = Vector3Add(F,F_ij);
+            if(i != j){
+                //F=ma hence the mass of the object in question cancels out 
+                float strength = -GRAVITATIONAL_CONSTANT * sim->pBodies[j].mass /
+                                 Vector3DistanceSqr(sim->pBodies[i].position_old, sim->pBodies[j].position_old);
+                Vector3 direction = Vector3Normalize(Vector3Subtract(sim->pBodies[i].position_old, sim->pBodies[j].position_old));
+                Vector3 a_ij = Vector3Scale(direction, strength);
+                sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, a_ij);
             }
         }
-        sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, Vector3Scale(F,1/(sim->pBodies[i].mass)));
-    }
-    
 
-    //Velocity and Position Calculations
-
-    for(i = 0; i < sim->bodies_count; i++){
+        //Velocity and Position Calculations
         sim->pBodies[i].velocity = Vector3Add(sim->pBodies[i].velocity, Vector3Scale(sim->pBodies[i].acceleration, sim->timestep));
         sim->pBodies[i].position = Vector3Add(sim->pBodies[i].position, Vector3Scale(sim->pBodies[i].velocity, sim->timestep));
     }

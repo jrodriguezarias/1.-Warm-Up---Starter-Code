@@ -23,6 +23,7 @@ typedef struct OrbitalBody
     Vector3 position;
     Vector3 velocity;
     Vector3 acceleration;
+    Vector3 position_old;
 
 }OrbitalBody_t;
 
