@@ -95,6 +95,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
 void destroyOrbitalSim(OrbitalSim_t *sim)
 {
     delete[] sim;
+    delete[] sim->pBodies;
 }
 
 /**
@@ -107,11 +108,11 @@ void updateOrbitalSim(OrbitalSim_t *sim)
     //Acceleration Calculations
    
     int i,j;
-    for(i = 1; i < sim->bodies_count; i++){
+    for(i = 0; i < sim->bodies_count; i++){
         Vector3 F = Vector3Zero();
         for(j = 0; j < sim->bodies_count; j++){
             if(i!=j){
-            float norma = Vector3Distance(sim->pBodies[i].position, sim->pBodies[j].position); 
+            double norma = Vector3Distance(sim->pBodies[i].position, sim->pBodies[j].position); 
             float scalar = -GRAVITATIONAL_CONSTANT * sim->pBodies[i].mass * sim->pBodies[j].mass / (norma * norma); 
             Vector3 F_ij = Vector3Scale(Vector3Subtract(sim->pBodies[i].position, sim->pBodies[j].position) , scalar / norma);
             F = Vector3Add(F,F_ij);
@@ -123,7 +124,7 @@ void updateOrbitalSim(OrbitalSim_t *sim)
 
     //Velocity and Position Calculations
 
-    for(i = 1; i < sim->bodies_count; i++){
+    for(i = 0; i < sim->bodies_count; i++){
         sim->pBodies[i].velocity = Vector3Add(sim->pBodies[i].velocity, Vector3Scale(sim->pBodies[i].acceleration, sim->timestep));
         sim->pBodies[i].position = Vector3Add(sim->pBodies[i].position, Vector3Scale(sim->pBodies[i].velocity, sim->timestep));
     }
