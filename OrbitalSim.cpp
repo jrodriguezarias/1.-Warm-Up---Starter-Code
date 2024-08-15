@@ -77,7 +77,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
    int i,j;
 
     //Copying the solarSystem to an array of OrbitalBodys
-    for(j = 0; j < 9; j++){
+    for(j = 0; j < bodyCount; j++){
         strcpy(Bodies[j].name,solarSystem[j].name);
         Bodies[j].mass = solarSystem[j].mass;
         Bodies[j].radius = solarSystem[j].radius;
@@ -103,7 +103,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
 void destroyOrbitalSim(OrbitalSim_t *sim)
 {
     delete[] sim;
-    delete[] sim->pBodies;
+    delete sim->pBodies;
 }
 
 /**
