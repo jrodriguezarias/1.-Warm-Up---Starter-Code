@@ -34,7 +34,8 @@ typedef struct OrbitalSim
 {
     float timestep; //Timesteps used to calculate object physics
     float total_time; //Time since the simulation started
-    int bodies_count;
+    int bodies_count; //Total amount of bodies (Planets/Stars/Asteroids)
+    int asteroid_count;
     OrbitalBody *pBodies;
 
 }OrbitalSim_t;

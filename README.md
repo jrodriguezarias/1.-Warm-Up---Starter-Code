@@ -2,7 +2,7 @@
 
 ## Integrantes del grupo y contribución al trabajo de cada integrante
 
-* [Nombre]: [contribución]
+* Juan Martín Rodríguez Arias: [contribución]
 
 [completar]
 

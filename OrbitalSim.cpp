@@ -71,7 +71,7 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
 OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
     int bodyCount = 9;
-    int asteroidCount = 25;
+    int asteroidCount = 500;
     OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount+asteroidCount];
 
    int i,j;
@@ -92,7 +92,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
         configureAsteroid(Bodies+j, Bodies[0].mass);
     }
     
-    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,0,bodyCount+asteroidCount,Bodies});
+    OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,0,bodyCount+asteroidCount,asteroidCount,Bodies});
     
     return Simulation; // This should return your orbital sim
 }
@@ -129,6 +129,7 @@ void updateOrbitalSim(OrbitalSim_t *sim)
                 Vector3 direction = Vector3Normalize(Vector3Subtract(sim->pBodies[i].position_old, sim->pBodies[j].position_old));
                 Vector3 a_ij = Vector3Scale(direction, strength);
                 sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, a_ij);
+                sim->pBodies[j].acceleration = Vector3Subtract(sim->pBodies[i].acceleration, a_ij);
             }
         }
 
