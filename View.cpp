@@ -98,9 +98,9 @@ void renderView(View *view, OrbitalSim *sim)
 
     int i;
     for(i = 0; i < sim->bodies_count; i++){
-        //if(i < sim->bodies_count - sim->asteroid_count){
+        if(i < sim->bodies_count - sim->asteroid_count){
             DrawSphere( Vector3Scale(sim->pBodies[i].position, 1E-11), 0.005F * logf(sim->pBodies[i].radius), sim->pBodies[i].color);
-        //}
+        }
         DrawPoint3D(sim->pBodies[i].position, sim->pBodies[i].color);
     }
     

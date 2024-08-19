@@ -133,7 +133,7 @@ void updateOrbitalSim(OrbitalSim_t *sim)
                 
             }
 
-            if(i > sim->bodies_count - sim->asteroid_count){
+            if(i > sim->bodies_count - sim->asteroid_count && j < sim->asteroid_count){
                 j = sim->bodies_count;
             }
         }
