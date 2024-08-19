@@ -74,7 +74,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
     int asteroidCount = 500;
     OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount+asteroidCount];
 
-   int i,j;
+   int i,j,k;
 
     //Copying the solarSystem to an array of OrbitalBodys
     for(j = 0; j < bodyCount; j++){
@@ -88,8 +88,8 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
     }
 
     //Filling out the rest of the bodies as asteroids
-    for(; j < bodyCount+asteroidCount; j++){
-        configureAsteroid(Bodies+j, Bodies[0].mass);
+    for(k = j; k < bodyCount+asteroidCount; k++){
+        configureAsteroid(Bodies+k, Bodies[0].mass);
     }
     
     OrbitalSim_t *Simulation = new OrbitalSim_t({timeStep,0,bodyCount+asteroidCount,asteroidCount,Bodies});
@@ -102,8 +102,9 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
  */
 void destroyOrbitalSim(OrbitalSim_t *sim)
 {
-    delete[] sim;
-    delete sim->pBodies;
+    delete[] sim->pBodies;
+    delete sim;
+    
 }
 
 /**
@@ -129,7 +130,11 @@ void updateOrbitalSim(OrbitalSim_t *sim)
                 Vector3 direction = Vector3Normalize(Vector3Subtract(sim->pBodies[i].position_old, sim->pBodies[j].position_old));
                 Vector3 a_ij = Vector3Scale(direction, strength);
                 sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, a_ij);
-                sim->pBodies[j].acceleration = Vector3Subtract(sim->pBodies[i].acceleration, a_ij);
+                
+            }
+
+            if(i > sim->bodies_count - sim->asteroid_count){
+                j = sim->bodies_count;
             }
         }
 
