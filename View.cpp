@@ -101,12 +101,12 @@ void renderView(View *view, OrbitalSim *sim)
         if(i < sim->bodies_count - sim->asteroid_count){
             DrawSphere( Vector3Scale(sim->pBodies[i].position, 1E-11), 0.005F * logf(sim->pBodies[i].radius), sim->pBodies[i].color);
         }
-        DrawPoint3D(sim->pBodies[i].position, sim->pBodies[i].color);
+        DrawPoint3D(sim->pBodies[i].position,sim->pBodies[i].color);
     }
     
     DrawGrid(10, 10.0f);
     EndMode3D();
-
+    
     // 2D Drawing
 
     DrawFPS(5,700);

@@ -47,7 +47,7 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
     float phi = getRandomFloat(0, 2.0F * (float)M_PI);
 
     // Surprise!
-    //phi = 0;
+    phi = 0;
 
     // https://en.wikipedia.org/wiki/Circular_orbit#Velocity
     float v = sqrtf(GRAVITATIONAL_CONSTANT * centerMass / r) * getRandomFloat(0.6F, 1.2F);
@@ -132,7 +132,7 @@ void updateOrbitalSim(OrbitalSim_t *sim)
                 sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, a_ij);
                 
             }
-
+            //Asteroids have their calculations done only with planets in order to save computational resources
             if(i > sim->bodies_count - sim->asteroid_count && j < sim->asteroid_count){
                 j = sim->bodies_count;
             }

@@ -24,8 +24,8 @@ en vez de esferas.
 
 ## Mejora de la complejidad computacional
 
-[completar]
+La complejidad del algoritmo que calcula las fuerzas (y por lo tanto, las aceleraciones) entre los cuerpos es de O(n^2). Esto es ineficiente para n grandes. La optimizacion que decidimos utilizar es hacer que los asteroides no interactuen entre si; reduciendo asi la complejidad computacional de O(n^2) a O(n) para los planetas y el Sol (asumiendo n como el numero de asteroides).
 
 ## Bonus points
 
-[completar]
+Poniendo phi = 0 en configureAsteroid, se puede lograr que los asteroides comiencen todos en fila 
