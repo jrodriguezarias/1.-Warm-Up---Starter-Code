@@ -71,7 +71,7 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
 OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
     int bodyCount = 9;
-    int asteroidCount = 500;
+    int asteroidCount = 1000;
     OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount+asteroidCount];
 
    int i,j,k;
