@@ -12,8 +12,8 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin" OR ${CMAKE_SYSTEM_NAME} MATCHES "Linux
 endif()
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     # UndefinedBehaviorSanitizer (UBSan)
-    add_compile_options(-fsanitize=undefined)
-    add_link_options(-fsanitize=undefined)
+    # add_compile_options(-fsanitize=undefined)
+    # add_link_options(-fsanitize=undefined)
 endif()
 
 add_executable(orbitalsim main.cpp OrbitalSim.cpp View.cpp)
