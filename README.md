@@ -7,8 +7,7 @@ Bautista Mijalovich: creacion de clases en OrbitalSim.h, verificacion del timest
 
 ## Verificación del timestep
 
-Multiplicamos por 100 años el timemultiplier aumentando el tiempo que transcurre en la simulación,
-verificando que la simulación siga andando dentro de un futuro lejano
+Haciendo 4 llamados a updateOrbitalSim en el bucle while de main.cpp, pudimos comprobar que el timestep utilizado (100 * SECONDS_PER_DAY o menor) tiene la precision necesaria como para que la simulacion sea precisa por tiempos extendidos.
 
 ## Verificación del tipo de datos float
 
