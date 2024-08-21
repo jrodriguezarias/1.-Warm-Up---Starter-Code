@@ -23,7 +23,7 @@ Estos son los dos cuellos de botella significativos que tiene la simulacion. Al 
 
 ## Mejora de la complejidad computacional
 
-La optimizacion que decidimos utilizar para los calculos de la fisica es hacer que los asteroides no interactuen entre si; reduciendoles asi la complejidad computacional de O(n^2) a O(n). Para los graficos, decidimos optimizar la complejidad al no graficar las asteroides como esferas sino como puntos. Tambien existe la opcion de graficarlas solo cuando estan a cierta distancia de la camara (opcion que dejamos comentada en view.cpp).
+La optimizacion que decidimos utilizar para los calculos de la fisica es hacer que los asteroides no atraigan a otros cuerpos; reduciendo asi la complejidad computacional de O(n^2) a O(n) para un numero acotado de planetas. Para los graficos, decidimos optimizar la complejidad al no graficar las asteroides como esferas sino como puntos. Tambien existe la opcion de graficarlas solo cuando estan a cierta distancia de la camara (opcion que dejamos comentada en view.cpp).
 
 ## Bonus points
 

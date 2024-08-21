@@ -143,8 +143,8 @@ void updateOrbitalSim(OrbitalSim_t *sim)
                 sim->pBodies[i].acceleration = Vector3Add(sim->pBodies[i].acceleration, a_ij);
                 
             }
-            //Asteroids have their calculations done only with planets in order to save computational resources
-            if(i > sim->bodies_count - sim->asteroid_count && j < sim->bodies_count - sim->asteroid_count){
+            //Asteroids are not taken into account in force calculations in order to save computational resources
+            if(j > sim->bodies_count - sim->asteroid_count){
                 j = sim->bodies_count;
             }
         }
