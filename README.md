@@ -33,4 +33,4 @@ Adición del Black Hole. Se modificaron la masa y el radio del sol para operar e
 
 Cuando se hace a jupiter 1000x mas masivo, la orbita de todos los planetas (y el Sol en si) se desvian y comienzan a orbitar alrededor de jupiter
 
-Agregamos Alpha Centauri (comentado en OrbitalSim.cpp)
+Agregamos Alpha Centauri (comentado en OrbitalSim.cpp). Para agregarlo, comentar el sistema solar y cambiar el valor de bodyCount a 2.
