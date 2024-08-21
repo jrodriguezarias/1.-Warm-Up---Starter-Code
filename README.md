@@ -30,3 +30,4 @@ La optimizacion que decidimos utilizar es hacer que los asteroides no interactue
 ## Bonus points
 
 Poniendo phi = 0 en configureAsteroid, se puede lograr que los asteroides comiencen todos en fila 
+Adición del Black Hole.

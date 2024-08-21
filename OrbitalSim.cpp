@@ -70,7 +70,7 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
  */
 OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
-    int bodyCount = 9;
+    int bodyCount = 10;
     int asteroidCount = 1000;
     OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount+asteroidCount];
 
@@ -125,7 +125,7 @@ void updateOrbitalSim(OrbitalSim_t *sim)
         for(j = 0; j < sim->bodies_count; j++){
             if(i != j){
                 //F=ma hence the mass of the object in question cancels out 
-                float strength = -GRAVITATIONAL_CONSTANT * sim->pBodies[j].mass /
+                double strength = -GRAVITATIONAL_CONSTANT * sim->pBodies[j].mass /
                                  Vector3DistanceSqr(sim->pBodies[i].position_old, sim->pBodies[j].position_old);
                 Vector3 direction = Vector3Normalize(Vector3Subtract(sim->pBodies[i].position_old, sim->pBodies[j].position_old));
                 Vector3 a_ij = Vector3Scale(direction, strength);

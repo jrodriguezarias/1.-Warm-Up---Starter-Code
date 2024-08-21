@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\ephemerides.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ephemerides.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\OrbitalSim.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrbitalSim.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\OrbitalSim.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrbitalSim.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,28 +38,67 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrbitalSim.h",
+              "DocumentMoniker": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\OrbitalSim.h",
+              "RelativeDocumentMoniker": "OrbitalSim.h",
+              "ToolTip": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\OrbitalSim.h",
+              "RelativeToolTip": "OrbitalSim.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-21T13:19:26.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-08-20T12:43:22.866Z",
+              "Title": "OrbitalSim.cpp",
+              "DocumentMoniker": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\OrbitalSim.cpp",
+              "RelativeDocumentMoniker": "OrbitalSim.cpp",
+              "ToolTip": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\OrbitalSim.cpp",
+              "RelativeToolTip": "OrbitalSim.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-21T13:19:11.727Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ephemerides.h",
+              "DocumentMoniker": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\ephemerides.h",
+              "RelativeDocumentMoniker": "ephemerides.h",
+              "ToolTip": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\ephemerides.h",
+              "RelativeToolTip": "ephemerides.h",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-21T13:18:09.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-20T12:43:19.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\bmija\\OneDrive\\Escritorio\\EDA\\EDA-TP1\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwBIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-08-20T12:43:22.866Z",
               "EditorCaption": ""
             }
           ]

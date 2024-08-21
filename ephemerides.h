@@ -14,8 +14,8 @@
 struct EphemeridesBody
 {
     const char *name; // Name
-    float mass;		  // [kg]
-    float radius;	  // [m]
+    double mass;	  // [kg]
+    double radius;	  // [m]
     Color color;	  // Raylib color
     Vector3 position; // [m]
     Vector3 velocity; // [m/s]
@@ -98,6 +98,14 @@ EphemeridesBody solarSystem[] = {
         DARKBLUE,
         {4.431790029686977E+12F, -8.954348456482631E+10F, -6.114486878028781E+11F},
         {7.066237951457524E+02F, -1.271365751559108E+02F, 5.417076605926207E+03F},
+    },
+    {
+        "Black Hole",
+        1988500E30F,
+        6957E0F, // Radio reducido
+        GOLD, // Está en color gold asi se puede ver el agujero "negro"
+        {-1.283674643550172E+04F, 2.589397504295033E+07F, 5.007104996950605E+08F},
+        {-5.809369653802155E-00F, 2.513455442031695E-02F, -1.461959576560110E+01F},
     },
 };
 

@@ -17,8 +17,8 @@
 typedef struct OrbitalBody
 {
     char name[100];
-    float mass;
-    float radius;
+    double mass;
+    double radius;
     Color color;
     Vector3 position;
     Vector3 velocity;
