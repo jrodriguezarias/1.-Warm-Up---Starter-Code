@@ -87,7 +87,7 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
         Bodies[j].position_old = solarSystem[j].position;
     }
 
-    //Alpha Centauri!
+    //Alpha Centauri
    /* for(j = 0; j < bodyCount; j++){
         strcpy(Bodies[j].name,alphaCentauriSystem[j].name);
         Bodies[j].mass = alphaCentauriSystem[j].mass;
