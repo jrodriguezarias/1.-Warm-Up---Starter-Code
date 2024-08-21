@@ -2,9 +2,8 @@
 
 ## Integrantes del grupo y contribución al trabajo de cada integrante
 
-Juan Rodriguez Arias: Algoritmo de calculo en updateOrbitalSim y optimizaciones en View.cpp
-Bautista Mijalovich: creacion de clases en OrbitalSim.h y verificacion del timestep
-
+Juan Rodriguez Arias: Algoritmo de calculo en updateOrbitalSim, optimizaciones en updateOrbitalSim y View.cpp, bonus de phi = 0 y bonus de Alpha Centauri.
+Bautista Mijalovich: creacion de clases en OrbitalSim.h, verificacion del timestep, bonus del agujero negro y bonus de Jupiter.
 
 ## Verificación del timestep
 

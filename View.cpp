@@ -99,7 +99,7 @@ void renderView(View *view, OrbitalSim *sim)
     int i;
     for(i = 0; i < sim->bodies_count; i++){
 
-        //Asteroids can be drawn as spheres if they are close enough by adding the condition 
+        //Asteroids can be drawn as spheres if they are close enough by adding the following condition in an or conjunction to the if below
         //Vector3Distance(view->camera.position, Vector3Scale(sim->pBodies[i].position,1E-11)) < [distance]
 
         if(i < sim->bodies_count - sim->asteroid_count){ 
