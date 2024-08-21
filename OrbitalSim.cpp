@@ -70,7 +70,7 @@ void configureAsteroid(OrbitalBody *body, float centerMass)
  */
 OrbitalSim_t *constructOrbitalSim(float timeStep)
 {
-    int bodyCount = 10;
+    int bodyCount = 9; 
     int asteroidCount = 1000;
     OrbitalBody_t * Bodies = new OrbitalBody_t[bodyCount+asteroidCount];
 
@@ -86,6 +86,17 @@ OrbitalSim_t *constructOrbitalSim(float timeStep)
         Bodies[j].velocity = solarSystem[j].velocity;
         Bodies[j].position_old = solarSystem[j].position;
     }
+
+    //Alpha Centauri!
+   /* for(j = 0; j < bodyCount; j++){
+        strcpy(Bodies[j].name,alphaCentauriSystem[j].name);
+        Bodies[j].mass = alphaCentauriSystem[j].mass;
+        Bodies[j].radius = alphaCentauriSystem[j].radius;
+        Bodies[j].color = alphaCentauriSystem[j].color;
+        Bodies[j].position = alphaCentauriSystem[j].position;
+        Bodies[j].velocity = alphaCentauriSystem[j].velocity;
+        Bodies[j].position_old = alphaCentauriSystem[j].position;
+    }*/
 
     //Filling out the rest of the bodies as asteroids
     for(k = j; k < bodyCount+asteroidCount; k++){
@@ -133,7 +144,7 @@ void updateOrbitalSim(OrbitalSim_t *sim)
                 
             }
             //Asteroids have their calculations done only with planets in order to save computational resources
-            if(i > sim->bodies_count - sim->asteroid_count && j < sim->asteroid_count){
+            if(i > sim->bodies_count - sim->asteroid_count && j < sim->bodies_count - sim->asteroid_count){
                 j = sim->bodies_count;
             }
         }

@@ -98,7 +98,11 @@ void renderView(View *view, OrbitalSim *sim)
 
     int i;
     for(i = 0; i < sim->bodies_count; i++){
-        if(i < sim->bodies_count - sim->asteroid_count || Vector3Distance(view->camera.position, Vector3Scale(sim->pBodies[i].position,1E-11)) < 10){
+
+        //Asteroids can be drawn as spheres if they are close enough by adding the condition 
+        //Vector3Distance(view->camera.position, Vector3Scale(sim->pBodies[i].position,1E-11)) < [distance]
+
+        if(i < sim->bodies_count - sim->asteroid_count){ 
             DrawSphere(Vector3Scale(sim->pBodies[i].position, 1E-11), 0.005F * logf(sim->pBodies[i].radius), sim->pBodies[i].color);
         }
         else{

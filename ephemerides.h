@@ -29,8 +29,8 @@ struct EphemeridesBody
 EphemeridesBody solarSystem[] = {
     {
         "Sol",
-        1988500E24F,
-        695700E3F,
+        1988500E24F, //Modified to E30F for black hole mode
+        695700E3F, //Modified to E1F for black hole mode
         GOLD,
         {-1.283674643550172E+09F, 2.589397504295033E+07F, 5.007104996950605E+08F},
         {-5.809369653802155E-00F, 2.513455442031695E-01F, -1.461959576560110E+01F},
@@ -69,7 +69,7 @@ EphemeridesBody solarSystem[] = {
     },
     {
         "Jupiter",
-        1898.18722E24F,
+        1898.18722E24F, // E27 to make 1000x heavier
         69911E3F,
         BEIGE,
         {6.955554713494443E+11F, -1.444959769995748E+10F, -2.679620040967891E+11F},
@@ -98,14 +98,6 @@ EphemeridesBody solarSystem[] = {
         DARKBLUE,
         {4.431790029686977E+12F, -8.954348456482631E+10F, -6.114486878028781E+11F},
         {7.066237951457524E+02F, -1.271365751559108E+02F, 5.417076605926207E+03F},
-    },
-    {
-        "Black Hole",
-        1988500E30F,
-        6957E0F, // Radio reducido
-        GOLD, // Está en color gold asi se puede ver el agujero "negro"
-        {-1.283674643550172E+04F, 2.589397504295033E+07F, 5.007104996950605E+08F},
-        {-5.809369653802155E-00F, 2.513455442031695E-02F, -1.461959576560110E+01F},
     },
 };
 

@@ -25,9 +25,12 @@ en vez de esferas.
 
 ## Mejora de la complejidad computacional
 
-La optimizacion que decidimos utilizar es hacer que los asteroides no interactuen entre si; reduciendo asi la complejidad computacional de O(n^2) a O(n) para los planetas y el Sol (asumiendo n como el numero de asteroides).
+La optimizacion que decidimos utilizar es hacer que los asteroides no interactuen entre si; reduciendo asi la complejidad computacional de O(n^2) a O(n) para los asteroides.
 
 ## Bonus points
 
-Poniendo phi = 0 en configureAsteroid, se puede lograr que los asteroides comiencen todos en fila 
-Adición del Black Hole.
+Poniendo phi = 0 en configureAsteroid, se puede lograr que los asteroides comiencen todos en fila y orbiten de forma coordinada alrededor del sol.
+
+Adición del Black Hole. Se modificaron la masa y el radio del sol para operar en modo "agujero negro". Este succiona los planetas hacia si mismo y acelera drasticamente las orbitas de los asteroides. Recomendamos cambiar la constante de timeMultiplier en main.cpp a 0.1 para mejor visualizacion 
+
+Cuando se hace a jupiter 1000x mas masivo, la orbita de todos los planetas (y el Sol en si) se desvian y comienzan a orbitar alrededor de jupiter
