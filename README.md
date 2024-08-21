@@ -8,7 +8,7 @@ Bautista Mijalovich: creacion de clases en OrbitalSim.h, verificacion del timest
 ## Verificación del timestep
 
 Multiplicamos por 100 años el timemultiplier aumentando el tiempo que transcurre en la simulación,
-verificando que la simulación siga andando dentro de un futuro lejano.....
+verificando que la simulación siga andando dentro de un futuro lejano
 
 ## Verificación del tipo de datos float
 
